@@ -482,8 +482,19 @@ function extractEmails(str) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  let res = '';
+  const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  for (let i = 0; i < str.length; i += 1) {
+    const idx = input.indexOf(str[i]);
+    if (idx === -1) {
+      res += str[i];
+    } else {
+      res += output[idx];
+    }
+  }
+  return res;
 }
 
 /**
